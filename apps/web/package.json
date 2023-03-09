@@ -4,7 +4,7 @@
   "description": "Retro looking CRT terminal for web",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/essserrr/crt-terminal.git"
+    "url": "git+https://github.com/nojsja/crt-terminal.git"
   },
   "keywords": [
     "crt",
@@ -13,10 +13,10 @@
     "react",
     "typescript"
   ],
-  "author": "Dmitriy Lipin",
+  "author": "Dmitriy Lipin, Nojsja",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/essserrr/crt-terminal/issues"
+    "url": "https://github.com/nojsja/crt-terminal/issues"
   },
   "private": true,
   "scripts": {
