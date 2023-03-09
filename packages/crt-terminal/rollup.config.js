@@ -4,12 +4,13 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import autoprefixer from 'autoprefixer';
+import path from 'path';
 
 const packageJson = require('./package.json');
 
 export default [
   {
-    input: 'src/index.ts',
+    input: path.resolve(__dirname, 'src/index.ts'),
     external: ['react', 'react-dom'],
     output: [
       {
@@ -26,15 +27,15 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: path.resolve(__dirname, './tsconfig.json') }),
       postcss({
         plugins: [autoprefixer()],
       }),
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    input: path.resolve(__dirname, 'dist/esm/index.d.ts'),
+    output: [{ file: path.resolve(__dirname, 'dist/index.d.ts'), format: 'esm' }],
     plugins: [dts()],
     external: [/\.(css|less|scss)$/],
   },

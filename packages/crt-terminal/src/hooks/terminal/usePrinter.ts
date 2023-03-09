@@ -80,7 +80,7 @@ function usePrinter({ printerSpeed, charactersPerTick, afterPrintCallback }: Pri
 
   const stopPrint = () => {
     setIsPrinting(false);
-    clearTimeout();
+    clearTimeoutState();
     clearResolver();
   };
 
