@@ -31,7 +31,7 @@ $rgb-noise-gradient: linear-gradient(90deg, $rgb-noise-r, $rgb-noise-g, $rgb-noi
 $pixel-line-color: rgb(0 0 0 / 21%);
 $pixel-lines-gradient: linear-gradient(transparent 50%, $pixel-line-color 0);
 
-$command-line-padding: size(5) size(5) size(5) size(5);
+$command-line-padding: size(3) size(5) size(3) size(5);
 
 @mixin terminal-text {
   font-family: $font-family;

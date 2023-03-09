@@ -8,7 +8,7 @@ import {
   anchorWord,
   buttonWord,
   commandWord,
-} from 'crt-terminal';
+} from '@nojsja/crt-terminal';
 import Layout from '../components/Layout/Layout';
 import classes from './index.module.scss';
 
