@@ -25,7 +25,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     defaultValue,
     ...attrs
   } = props;
-  const _value = ('value' in props) ? value : ('defaultValue' in props) ? defaultValue : null;
+  const mergeValue = ('value' in props) ? value : defaultValue;
 
   const forceSetValue = useCallback(() => {
     if ('value' in props && element.current) {
@@ -33,6 +33,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       input.value = value as string;
       input.setAttribute('value', value as string);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const onKeyDownInner = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -94,8 +95,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <input
+      /* eslint-disable-next-line react/jsx-props-no-spreading */
       {...attrs}
-      defaultValue={_value as string}
+      defaultValue={mergeValue as string}
       ref={(input) => {
         if (!input) return;
         element.current = input;

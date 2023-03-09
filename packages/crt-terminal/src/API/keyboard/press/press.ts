@@ -11,7 +11,7 @@ const newPosition = ({ oldLength, newLength, cursorPosition }: PositionProps) =>
 
   if (wasLast) return newLength;
   if (newLength < oldLength) return newLength;
-  return cursorPosition + 1;
+  return cursorPosition + (newLength - oldLength);
 };
 
 interface RenderProps {

@@ -23,6 +23,7 @@ module.exports = {
     },
   },
   rules: {
+    "react/prop-types": 0,
     "no-console": ["warn", { allow: ["warn", "error"] }],
     "react/jsx-props-no-spreading": [
       "error",
