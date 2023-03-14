@@ -43,6 +43,11 @@
       "pre-commit": "yarn prepush"
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prepush"
+    }
+  },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
