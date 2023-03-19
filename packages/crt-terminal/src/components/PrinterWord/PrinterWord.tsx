@@ -24,6 +24,8 @@ const PrinterWord = function PrinterWord({ word, children }: PropsWithChildren<P
             <Character>{children}</Character>
           </span>
         );
+      case WordTypes.INLINE_TEXT:
+        return <>{children}</>;
       case WordTypes.ANCHOR:
         return (
           <a

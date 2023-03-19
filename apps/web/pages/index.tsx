@@ -9,6 +9,7 @@ import {
   anchorWord,
   buttonWord,
   commandWord,
+  inlineTextWord,
 } from '@nojsja/crt-terminal';
 import Layout from '../components/Layout/Layout';
 import classes from './index.module.scss';
@@ -78,19 +79,19 @@ export default function Web() {
             inlineTextLine({
               className: classes.customLine,
               words: [
-                textWord({
+                inlineTextWord({
                   characters: 'inline 中文',
                 }),
-                textWord({
+                inlineTextWord({
                   characters: ' inline 中文',
                 }),
-                textWord({
+                inlineTextWord({
                   characters: ' inline 中文',
                 }),
-                textWord({
+                inlineTextWord({
                   characters: ' inline 中文',
                 }),
-                textWord({
+                inlineTextWord({
                   characters: ' inline 中文2 长长长长长长长长长长长长长长长长长长长长长长长长长',
                 }),
               ],

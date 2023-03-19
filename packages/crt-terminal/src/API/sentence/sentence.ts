@@ -4,6 +4,7 @@ type ButtonCallback = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => vo
 enum WordTypes {
   ANCHOR = 'ANCHOR',
   TEXT = 'TEXT',
+  INLINE_TEXT = 'INLINE_TEXT',
   BUTTON = 'BUTTON',
   COMMAND = 'COMMAND',
 }
@@ -28,6 +29,10 @@ interface TextWord extends BaseWord {
   type: WordTypes.TEXT;
 }
 
+interface InlineTextWord extends BaseWord {
+  type: WordTypes.INLINE_TEXT;
+}
+
 interface ButtonWord extends BaseWord {
   type: WordTypes.BUTTON;
   onClick?: ButtonCallback;
@@ -38,7 +43,7 @@ interface CommandWord extends BaseWord {
   prompt: string;
 }
 
-type Words = AnchorWord | TextWord | ButtonWord | CommandWord;
+type Words = AnchorWord | TextWord | InlineTextWord | ButtonWord | CommandWord;
 
 type AnchorProps = Omit<AnchorWord, 'type'>;
 
@@ -63,6 +68,14 @@ type TextProps = Omit<TextWord, 'type'>;
 
 const textWord = ({ characters, dataAttribute, className, id }: TextProps): TextWord => ({
   type: WordTypes.TEXT,
+  characters,
+  dataAttribute,
+  id,
+  className,
+});
+
+const inlineTextWord = ({ characters, dataAttribute, className, id }: TextProps): InlineTextWord => ({
+  type: WordTypes.INLINE_TEXT,
   characters,
   dataAttribute,
   id,
@@ -160,6 +173,7 @@ const inlineTextLine = ({ words, dataAttribute, className, id }: InlineTextLineP
 export type {
   AnchorWord,
   TextWord,
+  InlineTextWord,
   ButtonWord,
   Words,
   TextLine,
@@ -171,6 +185,7 @@ export {
   WordTypes,
   LineTypes,
   textWord,
+  inlineTextWord,
   buttonWord,
   commandWord,
   anchorWord,
