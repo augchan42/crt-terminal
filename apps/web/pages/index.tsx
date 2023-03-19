@@ -3,6 +3,7 @@ import {
   Terminal,
   useEventQueue,
   textLine,
+  inlineTextLine,
   commandLine,
   textWord,
   anchorWord,
@@ -71,6 +72,40 @@ export default function Web() {
                   characters: 'button word',
                   /* eslint-disable-next-line */
                   onClick: () => alert('You clicked a button'),
+                }),
+              ],
+            }),
+            inlineTextLine({
+              className: classes.customLine,
+              words: [
+                textWord({
+                  characters: 'inline 中文',
+                }),
+                textWord({
+                  characters: ' inline 中文',
+                }),
+                textWord({
+                  characters: ' inline 中文',
+                }),
+                textWord({
+                  characters: ' inline 中文',
+                }),
+                textWord({
+                  characters: ' inline 中文2 长长长长长长长长长长长长长长长长长长长长长长长长长',
+                }),
+              ],
+            }),
+            inlineTextLine({
+              className: classes.customLine,
+              words: [
+                textWord({
+                  characters: ' inline 中文2',
+                }),
+                textWord({
+                  characters: ' inline 中文2',
+                }),
+                textWord({
+                  characters: ' inline 中文2 长长长长长长长长长长长长长长长长长长长长长长长长长',
                 }),
               ],
             }),

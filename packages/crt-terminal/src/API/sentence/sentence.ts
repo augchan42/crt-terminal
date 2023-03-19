@@ -106,6 +106,7 @@ const commandWord = ({
 enum LineTypes {
   TEXT = 'TEXT',
   COMMAND = 'COMMAND',
+  INLINE_TEXT = 'INLINE_TEXT'
 }
 
 interface BaseLine extends ElementBase {
@@ -116,11 +117,15 @@ interface TextLine extends BaseLine {
   type: LineTypes.TEXT;
 }
 
+interface InlineTextLine extends BaseLine {
+  type: LineTypes.INLINE_TEXT;
+}
+
 interface CommandLine extends BaseLine {
   type: LineTypes.COMMAND;
 }
 
-type Lines = TextLine | CommandLine;
+type Lines = TextLine | InlineTextLine | CommandLine;
 
 type CommandLineProps = Omit<CommandLine, 'type'>;
 
@@ -142,7 +147,26 @@ const textLine = ({ words, dataAttribute, className, id }: TextLineProps): TextL
   id,
 });
 
-export type { AnchorWord, TextWord, ButtonWord, Words, TextLine, CommandLine, Lines };
+type InlineTextLineProps = Omit<InlineTextLine, 'type'>;
+
+const inlineTextLine = ({ words, dataAttribute, className, id }: InlineTextLineProps): InlineTextLine => ({
+  type: LineTypes.INLINE_TEXT,
+  words,
+  dataAttribute,
+  className,
+  id,
+});
+
+export type {
+  AnchorWord,
+  TextWord,
+  ButtonWord,
+  Words,
+  TextLine,
+  InlineTextLine,
+  CommandLine,
+  Lines
+};
 export {
   WordTypes,
   LineTypes,
@@ -152,4 +176,5 @@ export {
   anchorWord,
   commandLine,
   textLine,
+  inlineTextLine,
 };

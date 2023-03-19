@@ -4,7 +4,9 @@
 
 Simple retro styled React-hooks-based terminal shell.
 
-[Demo page](https://crt-terminal.vercel.app/).
+Special support for chinese **Pinyin** input.
+
+[Online Demo](https://crt-terminal-web.vercel.app/).
 
 # Features
 
@@ -20,10 +22,10 @@ Simple retro styled React-hooks-based terminal shell.
 
 The best way to use crt-terminal is to install it from npm and include it into your app.
 
-```
-yarn add crt-terminal
+```bash
+yarn add @nojsja/crt-terminal
 
-npm install crt-terminal
+npm install @nojsja/crt-terminal
 ```
 
 Then you need to import `Terminal`, `useEventQueue` (or implement your own EventQueue) and line/words helpers (or corresponding enum with IDs).
@@ -32,7 +34,7 @@ Then you need to import `Terminal`, `useEventQueue` (or implement your own Event
 
 ```js
 import React from 'react';
-import { Terminal, useEventQueue, textLine, textWord, commandWord } from 'crt-terminal';
+import { Terminal, useEventQueue, textLine, textWord, commandWord } from '@nojsja/crt-terminal';
 
 const bannerText = `
 Hello world!
