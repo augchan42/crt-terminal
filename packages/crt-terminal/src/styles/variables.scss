@@ -32,6 +32,7 @@ $pixel-line-color: rgb(0 0 0 / 21%);
 $pixel-lines-gradient: linear-gradient(transparent 50%, $pixel-line-color 0);
 
 $command-line-padding: size(1.5) size(5) size(1.5) size(5);
+$command-line-margin: size(1.5) size(5) size(1.5) size(-5);
 
 @mixin terminal-text {
   font-family: $font-family;

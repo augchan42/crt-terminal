@@ -34,6 +34,16 @@ const PrinterLine = function PrinterLine({ line, children }: PropsWithChildren<P
             {children}
           </div>
         );
+      case LineTypes.INLINE_TEXT:
+        return (
+          <div
+            id={id}
+            className={[classes.inlineTextLine, 'crt-command-line', 'crt-inline-command-line', className].join(' ')}
+            data-crt-terminal={dataAttribute}
+          >
+            {children}
+          </div>
+        );
       default:
         return checkLines(line);
     }
