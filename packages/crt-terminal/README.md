@@ -1,5 +1,3 @@
-[![NPM](https://img.shields.io/npm/v/react-select.svg)](https://www.npmjs.com/package/crt-terminal)
-
 # CRT terminal
 
 Simple retro styled React-hooks-based terminal shell.
@@ -76,21 +74,21 @@ export default function App() {
 
 ## Optional props
 
-1.  `prompt?: string` - prompt symbol before command input; default: `>\xa0`;
-2.  `cursorSymbol?: string` - cursor symbol inside command input; default: `\xa0`;
-3.  `maxHistoryCommands?: number` - max number of commands to be memorized in commands history; default: `10`;
-4.  `banner?: PrintableItem` - message to be printed after `Terminal` is mounted; default: `undefined`.
-5.  `loader?: Partial<LoaderConfig>` - loader config, consist of:
+1. `prompt?: string` - prompt symbol before command input; default: `>\xa0`;
+2. `cursorSymbol?: string` - cursor symbol inside command input; default: `\xa0`;
+3. `maxHistoryCommands?: number` - max number of commands to be memorized in commands history; default: `10`;
+4. `banner?: PrintableItem` - message to be printed after `Terminal` is mounted; default: `undefined`.
+5. `loader?: Partial<LoaderConfig>` - loader config, consist of:
 
     - `slides: string[]` - array of consecutive loader states; default: `['.', '..', '...']`;
     - `loaderSpeed: number` - interval between state changes; default: `1000`;
 
-6.  `printer?: Partial<PrinterConfig>` - printer config, consist of:
+6. `printer?: Partial<PrinterConfig>` - printer config, consist of:
 
     - `printerSpeed: number` - interval between state changes; default: `20`;
     - `charactersPerTick: number` - characters to print on each tick; default: `5`;
 
-7.  `effects?` enabling or disabling following effects:
+7. `effects?` enabling or disabling following effects:
 
     - `scanner?: boolean` - scanner line; default: `true`;
     - `pixels?: boolean` - "pixels" effect; default: `true`;
@@ -116,7 +114,8 @@ If you don't like event creators, you can use `enqueue` function from `api` fiel
 As one can notice `print` handler prints a `PrintableItem`. `PrintableItem` or sentence is an array of `Lines`. Line is essentially a new `div` on the screen, each line has field `words` containing array of `Words`. There are two types of lines:
 
 1. `TextLine` (larger x-padding, no y-padding)
-2. `CommandLine` (smaller x-padding, has y-padding).
+2. `InlineTextLine` (for simple inline text display, without customized class name support)
+3. `CommandLine` (smaller x-padding, has y-padding)
 
 **Important!** Each `Lines` and `Words` have common optional fields:
 
@@ -128,12 +127,13 @@ Word is essentially a new `span` inside a line. Word can be multilined. Each wor
 
 1. `AnchorWord` - `<a>` element with optional `href` and `onClick` fields
 2. `TextWord` - `<span>` element
-3. `ButtonWord` - `<button>` element with optional `onClick` field
-4. `CommandWord` - `<span>` element with required `prompt` field
+3. `InlineTextWord` - pure text element, mostly used for `InlineTextLine`
+4. `ButtonWord` - `<button>` element with optional `onClick` field
+5. `CommandWord` - `<span>` element with required `prompt` field
 
 There are two ways of creating `Lines` and `Words`:
 
-1. Using helper functions `textWord`, `buttonWord`, `commandWord`, `anchorWord`, `commandLine`, `textLine`
+1. Using helper functions `textWord`, `inlineTextWord`,`buttonWord`, `commandWord`, `anchorWord`, `commandLine`, `textLine`
 2. Using object literals, in this cases you need to import `WordTypes`, `LineTypes` enums
 
 ## Styling
