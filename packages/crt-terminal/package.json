@@ -1,8 +1,8 @@
 {
-  "name": "@nojsja/crt-terminal",
-  "version": "1.0.19",
+  "name": "@jquesnelle/crt-terminal",
+  "version": "1.0.20",
   "description": "Retro looking CRT terminal for web",
-  "repository": "https://github.com/nojsja/crt-terminal",
+  "repository": "https://github.com/jquesnelle/crt-terminal",
   "keywords": [
     "crt",
     "terminal",
@@ -10,10 +10,10 @@
     "react",
     "typescript"
   ],
-  "author": "Dmitriy Lipin, Nojsja",
+  "author": "Dmitriy Lipin, Nojsja, Jeffrey Quesnelle",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nojsja/crt-terminal/issues"
+    "url": "https://github.com/jquesnelle/crt-terminal/issues"
   },
   "private": false,
   "scripts": {
@@ -33,7 +33,7 @@
   ],
   "types": "dist/index.d.ts",
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^18"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -46,7 +46,7 @@
     "@rollup/plugin-typescript": "^8.3.0",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.34",
+    "@types/react": "^18.2.67",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "autoprefixer": "^10.4.2",
@@ -72,8 +72,8 @@
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.2",
     "prettier": "^2.5.1",
-    "react": "17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18",
+    "react-dom": "^18",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-postcss": "^4.0.1",

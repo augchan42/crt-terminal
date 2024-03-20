@@ -21,9 +21,9 @@ Special support for chinese **Pinyin** input.
 The best way to use crt-terminal is to install it from npm and include it into your app.
 
 ```bash
-yarn add @nojsja/crt-terminal
+yarn add @jquesnelle/crt-terminal
 
-npm install @nojsja/crt-terminal
+npm install @jquesnelle/crt-terminal
 ```
 
 Then you need to import `Terminal`, `useEventQueue` (or implement your own EventQueue) and line/words helpers (or corresponding enum with IDs).
@@ -32,7 +32,7 @@ Then you need to import `Terminal`, `useEventQueue` (or implement your own Event
 
 ```js
 import React from 'react';
-import { Terminal, useEventQueue, textLine, textWord, commandWord } from '@nojsja/crt-terminal';
+import { Terminal, useEventQueue, textLine, textWord, commandWord } from '@jquesnelle/crt-terminal';
 
 const bannerText = `
 Hello world!

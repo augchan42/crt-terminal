@@ -1,4 +1,4 @@
-const withTM = require("next-transpile-modules")(["@nojsja/crt-terminal"]);
+const withTM = require("next-transpile-modules")(["@jquesnelle/crt-terminal"]);
 
 module.exports = withTM({
   reactStrictMode: true,
