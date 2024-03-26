@@ -106,6 +106,7 @@ const Terminal = function Terminal({
   useSubscribeEventQueue({ queue, controller: controllerHandlers });
 
   return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={[classes.terminal, 'crt-terminal'].join(' ')}
       htmlFor="crt-command-line-input"
