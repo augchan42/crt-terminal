@@ -20,6 +20,7 @@ const PrinterLine = function PrinterLine({ line, children }: PropsWithChildren<P
             id={id}
             className={[classes.textLine, 'crt-text-line', className].join(' ')}
             data-crt-terminal={dataAttribute}
+            style={{marginLeft: line.marginChars ? `${line.marginChars}ch` : 0 }}
           >
             {children}
           </div>

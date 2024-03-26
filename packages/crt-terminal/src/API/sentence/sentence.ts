@@ -123,6 +123,7 @@ enum LineTypes {
 }
 
 interface BaseLine extends ElementBase {
+  marginChars?: number 
   words: Words[];
 }
 
@@ -152,12 +153,13 @@ const commandLine = ({ words, dataAttribute, className, id }: CommandLineProps):
 
 type TextLineProps = Omit<TextLine, 'type'>;
 
-const textLine = ({ words, dataAttribute, className, id }: TextLineProps): TextLine => ({
+const textLine = ({ words, dataAttribute, className, id, marginChars }: TextLineProps): TextLine => ({
   type: LineTypes.TEXT,
   words,
   dataAttribute,
   className,
   id,
+  marginChars
 });
 
 type InlineTextLineProps = Omit<InlineTextLine, 'type'>;
