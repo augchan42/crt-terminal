@@ -138,9 +138,10 @@ export default function Web() {
           onClick={() => {
             print([
               textLine({
+                marginChars: 5,
                 words: [
                   textWord({
-                    characters: 'Hello world! Hello world! Hello world!',
+                    characters: 'Hssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssello world! Hello world! Hello world!',
                   }),
                 ],
               }),
