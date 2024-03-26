@@ -6,6 +6,7 @@ import {
   isRemoveActions,
   isServiceActions,
   PreventProps,
+  Keyboard,
 } from '../API/keyboard';
 import { commandLine, commandWord } from '../API/sentence/sentence';
 import { PrintableItem } from '../API/printer';
@@ -138,8 +139,14 @@ function useTerminalController({
     }
   };
 
-  const handleInputChange = (newInput: string) => {
-    if (!inputLocked) addCharacter(newInput);
+  const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+    if (inputLocked) return;
+    const newValue = event.currentTarget.value;
+    const nativeEvent = event.nativeEvent as InputEvent;
+
+    if (nativeEvent.inputType === 'insertText') addCharacter(newValue);
+    if (nativeEvent.inputType === 'deleteContentBackward') removeCharacter(Keyboard.BACKSPACE);
+    if (nativeEvent.inputType === 'deleteContentForward') removeCharacter(Keyboard.DELETE)
   };
 
   const handleKeyboardEvent = (key: string) => {

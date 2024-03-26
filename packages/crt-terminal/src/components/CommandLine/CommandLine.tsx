@@ -26,10 +26,7 @@ const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
     inputElement,
   ) => {
     const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
-      const {
-        currentTarget: { value },
-      } = event;
-      handleInputChange(value);
+      handleInputChange(event);
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
