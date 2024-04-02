@@ -50,6 +50,7 @@ interface TerminalControllerProps {
     queue: ControllerQueue;
   };
   focusOnMount: boolean;
+  allowEmptyCommand: boolean;
 }
 
 type TerminalControllerReturnType = ReturnType<typeof useTerminalController>;
@@ -97,6 +98,7 @@ function useTerminalController({
     },
   },
   focusOnMount,
+  allowEmptyCommand,
 }: TerminalControllerProps) {
   const [lockedByLoader, setLockedByLoader] = useState(false);
 
@@ -158,7 +160,7 @@ function useTerminalController({
       submitCommand();
 
       const characters = inputValue.trim();
-      if (characters) {
+      if (characters || allowEmptyCommand) {
         addCommand(characters);
         enqueue({ type: PrinterEvents.PRINT, payload: [printCommandLine({ characters, prompt })] });
         onCommand(characters);
