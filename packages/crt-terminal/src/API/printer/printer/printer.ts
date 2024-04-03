@@ -5,6 +5,11 @@ import { printMultiline } from '../multiline/multiline';
 type Printer = Lines[];
 type PrintableItem = Lines[];
 
+export interface PrinterConfig {
+  printerSpeed: number;
+  charactersPerTick: number;
+}
+
 interface MakeNewStateProps {
   prevState: Printer;
   printedLinesNext: Lines[];
@@ -31,6 +36,7 @@ interface PrinterResponse {
   wordFullyPrinted: boolean;
   newLine: boolean;
   state: Printer;
+  configOverride?: Partial<PrinterConfig>
 }
 
 const printer = ({
@@ -59,7 +65,7 @@ const printer = ({
     printedLines: printedLinesNext,
     wordFullyPrinted: wordFullyPrintedNext,
     newLine: newLineNext,
-    state: makeNewState({ prevState, printedLinesNext, newLine }),
+    state: makeNewState({ prevState, printedLinesNext, newLine })
   };
 };
 

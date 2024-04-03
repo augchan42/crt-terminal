@@ -7,6 +7,7 @@ import {
   LockEvent,
   LoadingEvent,
 } from './terminalQueue/useTerminalQueue';
+import { PrinterConfig } from '../terminal/usePrinter';
 
 type InterfaceEvent = FocusEvent | ClearEvent | PrintEvent | LockEvent | LoadingEvent;
 
@@ -31,10 +32,11 @@ function useEventQueue() {
   };
   const nextEvent = (): InterfaceEvent | undefined => queueState[0];
 
-  const print = (payload: PrintableItem) => {
+  const print = (payload: PrintableItem, configOverride?: Partial<PrinterConfig>) => {
     enqueue({
       type: PrinterEvents.PRINT,
       payload,
+      configOverride
     });
   };
 

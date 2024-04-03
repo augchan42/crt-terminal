@@ -172,6 +172,34 @@ export default function Web() {
         <button className={classes.button} onClick={() => focus()} type="button">
           Focus
         </button>
+        <button className={classes.button} onClick={() => print([
+          textLine({
+            words: [
+              textWord({
+                characters: 'This got printed instantly !!! wow so fast incredible',
+              })
+            ]
+          }),
+            textLine({
+            words: [
+              textWord({
+                characters: 'This got printed instantly !!! wow so fast incredible',
+              })
+            ]
+            }),
+              textLine({
+            words: [
+              textWord({
+                characters: '-----------------------------------------------------',
+              })
+            ]
+          })
+        ], {
+          charactersPerTick: Infinity,
+          printerSpeed: 1
+        })} type="button">
+          Instant print
+        </button>
       </div>
     </Layout>
   );

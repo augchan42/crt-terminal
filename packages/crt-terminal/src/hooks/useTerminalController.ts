@@ -112,11 +112,9 @@ function useTerminalController({
     lockApp(locked);
   };
 
-  const clear = () => clearScreen();
+  const clear = clearScreen;
 
-  const print = async (line: PrintableItem) => {
-    await printOnScreen(line);
-  };
+  const print = printOnScreen;
 
   const lockByLoader = (lockState: boolean) => {
     const needToLock = lockState && lockState !== inputLocked;

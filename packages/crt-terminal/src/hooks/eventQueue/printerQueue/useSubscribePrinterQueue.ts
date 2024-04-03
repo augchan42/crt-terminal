@@ -29,7 +29,7 @@ function useSubscribePrinterQueue({
         dequeue(nullifyActiveEvent);
         break;
       case PrinterEvents.PRINT:
-        await print(event.payload);
+        await print(event.payload, event.configOverride);
         dequeue(nullifyActiveEvent);
         break;
       default:
