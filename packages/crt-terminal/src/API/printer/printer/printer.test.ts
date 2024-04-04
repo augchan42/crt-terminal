@@ -93,6 +93,23 @@ describe('Printer', () => {
         state: result,
       });
     });
+    it('should print instantly when requested', async () => {
+      const result = [textLine({ words: [textWord({ characters: 'worldhello' })] })];
+      expect(printer({
+        state: [HELLO_LINE],
+        remainingLines: [HELLO_LINE],
+        printedLines: [WORLD_LINE],
+        wordFullyPrinted: false,
+        newLine: false,
+        charactersToPrint: Infinity,
+      })).toEqual({
+        newLine: true,
+        wordFullyPrinted: true,
+        remainingLines: null,
+        printedLines: result,
+        state: result,
+      })
+    })
   });
 
   describe('createPrinterTask', () => {

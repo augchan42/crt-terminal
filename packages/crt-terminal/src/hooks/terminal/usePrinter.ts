@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Nullable } from '../../utils/helpers';
-import { printer, PrintableItem, PrinterResponse, createPrinterTask } from '../../API/printer';
+import { printer, PrintableItem, PrinterResponse, createPrinterTask, PrinterConfig } from '../../API/printer';
 
 type PrinterReturnType = ReturnType<typeof usePrinter>;
 
@@ -15,10 +15,6 @@ const defaultState: PrinterResponse = {
 type IntervalID = ReturnType<typeof setTimeout>;
 type ResolveCallback = Nullable<(value: unknown) => void>;
 
-interface PrinterConfig {
-  printerSpeed: number;
-  charactersPerTick: number;
-}
 
 interface PrinterProps extends PrinterConfig {
   afterPrintCallback: () => void;
@@ -46,7 +42,7 @@ function usePrinter({ printerSpeed, charactersPerTick, afterPrintCallback }: Pri
   };
 
   const nextPrint = () => {
-    const { remainingLines, printedLines, wordFullyPrinted, newLine, state } = printerResponse;
+    const { remainingLines, printedLines, wordFullyPrinted, newLine, state, configOverride} = printerResponse;
     if (!remainingLines) return;
 
     const resp = printer({
@@ -55,23 +51,23 @@ function usePrinter({ printerSpeed, charactersPerTick, afterPrintCallback }: Pri
       wordFullyPrinted,
       newLine,
       state,
-      charactersToPrint: charactersPerTick,
+      charactersToPrint: configOverride?.charactersPerTick ?? charactersPerTick,
     });
-    setPrinterResponse(resp);
+    setPrinterResponse({...resp, configOverride});
     setActiveTimeout(null);
   };
 
-  const startPrint = async (line: PrintableItem) => {
+  const startPrint = async (line: PrintableItem, configOverride?: Partial<PrinterConfig>) => {
     const resp = printer({
       remainingLines: line,
       printedLines: [],
       state: printerResponse.state,
       wordFullyPrinted: true,
       newLine: true,
-      charactersToPrint: charactersPerTick,
+      charactersToPrint: configOverride?.charactersPerTick ?? charactersPerTick,
     });
     setIsPrinting(true);
-    setPrinterResponse(resp);
+    setPrinterResponse({...resp, configOverride});
 
     return new Promise((resolve) => {
       resolveRef.current = resolve;
@@ -97,7 +93,7 @@ function usePrinter({ printerSpeed, charactersPerTick, afterPrintCallback }: Pri
       stopPrint();
       afterPrintCallback();
     } else if (shouldPrint) {
-      setActiveTimeout(createPrinterTask(nextPrint, printerSpeed));
+      setActiveTimeout(createPrinterTask(nextPrint, printerResponse?.configOverride?.printerSpeed ?? printerSpeed));
       afterPrintCallback();
     } else if (shouldClearTimeout) {
       clearTimeoutState();

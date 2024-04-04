@@ -58,7 +58,7 @@ function useSubscribeEventQueue({
         dequeue(nullifyActiveEvent);
         break;
       case PrinterEvents.PRINT:
-        printerPrint(event.payload);
+        printerPrint(event.payload, event.configOverride);
         dequeue(nullifyActiveEvent);
         break;
       default:

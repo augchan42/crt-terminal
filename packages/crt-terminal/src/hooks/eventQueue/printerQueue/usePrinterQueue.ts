@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { PrintableItem } from '../../../API/printer';
+import { PrinterConfig } from '../../terminal/usePrinter';
 
 enum PrinterEvents {
   PRINT = 'PRINT',
@@ -13,6 +14,7 @@ interface ClearEvent {
 interface PrintEvent {
   type: PrinterEvents.PRINT;
   payload: PrintableItem;
+  configOverride?: Partial<PrinterConfig>
 }
 
 type PrinterQueueEvents = ClearEvent | PrintEvent;
@@ -39,10 +41,11 @@ function usePrinterQueue() {
 
   const nextEvent = (): PrinterQueueEvents | undefined => queueState[0];
 
-  const print = (payload: PrintableItem) => {
+  const print = (payload: PrintableItem, configOverride?: Partial<PrinterConfig>) => {
     enqueue({
       type: PrinterEvents.PRINT,
       payload,
+      configOverride
     });
   };
 
