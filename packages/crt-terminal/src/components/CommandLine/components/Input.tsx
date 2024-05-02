@@ -33,10 +33,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       input.value = value as string;
       input.setAttribute('value', value as string);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const onKeyDownInner = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // ignore tabs
+    if (e.key === 'Tab') {
+      e.preventDefault()
+      return
+    }
     // return when inputing chinese pinyin
     if (inputing.current) return;
     onKeyDown?.(e);
