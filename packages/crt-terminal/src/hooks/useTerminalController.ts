@@ -145,6 +145,7 @@ function useTerminalController({
     const nativeEvent = event.nativeEvent as InputEvent;
 
     if (nativeEvent.inputType === 'insertText') addCharacter(newValue);
+    if (nativeEvent.inputType === 'insertFromPaste') addCharacter(newValue);
     if (nativeEvent.inputType === 'deleteContentBackward') removeCharacter(Keyboard.BACKSPACE);
     if (nativeEvent.inputType === 'deleteContentForward') removeCharacter(Keyboard.DELETE)
   };
