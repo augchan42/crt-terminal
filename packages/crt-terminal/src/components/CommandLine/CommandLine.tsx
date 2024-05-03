@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CommandLine as CommandLineState } from '../../hooks/terminal/useCommandLine';
 import { TerminalControllerReturnType } from '../../hooks/useTerminalController';
 import Character from '../Character/Character';
@@ -35,6 +35,16 @@ const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
       handleKeyboardDown(event);
     };
 
+    const [hasFocus, setHasFocus] = useState<boolean>(false)
+    
+    const handleOnFocus = () => {
+      setHasFocus(true)
+    }
+
+    const handleOnBlur = () => {
+      setHasFocus(false)
+    }
+
     const lastSelected = cursorPosition === renderValue.length;
 
     return (
@@ -48,13 +58,15 @@ const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
             value={inputValue}
             onInput={handleInput}
             onKeyDown={handleKeyDown}
+            onFocus={handleOnFocus}
+            onBlur={handleOnBlur}
             autoComplete={autoComplete ? "on" : "off"}
             type="text"
           />
           <div className={[classes.inputString, 'crt-command-line__input-string'].join(' ')}>
-            <InputString renderValue={renderValue} cursorPosition={cursorPosition} />
+            <InputString renderValue={renderValue} cursorPosition={cursorPosition} hasFocus={hasFocus} />
             {lastSelected && (
-              <Character className="crt-cursor-symbol" selected>
+              <Character className="crt-cursor-symbol" selected hasFocus={hasFocus}>
                 {cursorSymbol}
               </Character>
             )}
