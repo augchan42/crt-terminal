@@ -49,6 +49,7 @@ interface TerminalProps {
   };
   focusOnMount?: boolean;
   allowEmptyCommand?: boolean;
+  autoComplete?: boolean;
 }
 
 const Terminal = function Terminal({
@@ -65,6 +66,7 @@ const Terminal = function Terminal({
   effects: { scanner = true, pixels = true, screenEffects = true, textEffects = true } = {},
   focusOnMount = true,
   allowEmptyCommand = false,
+  autoComplete = false,
 }: TerminalProps) {
   const terminalApp = useTerminalApp();
   const {
@@ -133,6 +135,7 @@ const Terminal = function Terminal({
                 state={commandLine.state}
                 handleKeyboardDown={handleKeyboardDown}
                 handleInputChange={handleInputChange}
+                autoComplete={autoComplete}
               />
             </div>
           </TextEffects>

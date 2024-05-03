@@ -12,6 +12,7 @@ interface CommandLineProps {
   state: CommandLineState;
   handleKeyboardDown: TerminalControllerReturnType['handlers']['handleKeyboardDown'];
   handleInputChange: TerminalControllerReturnType['handlers']['handleInputChange'];
+  autoComplete: boolean;
 }
 
 const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
@@ -22,6 +23,7 @@ const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
       handleInputChange,
       prompt,
       cursorSymbol,
+      autoComplete,
     },
     inputElement,
   ) => {
@@ -46,6 +48,7 @@ const CommandLine = React.forwardRef<HTMLInputElement, CommandLineProps>(
             value={inputValue}
             onInput={handleInput}
             onKeyDown={handleKeyDown}
+            autoComplete={autoComplete ? "on" : "off"}
             type="text"
           />
           <div className={[classes.inputString, 'crt-command-line__input-string'].join(' ')}>

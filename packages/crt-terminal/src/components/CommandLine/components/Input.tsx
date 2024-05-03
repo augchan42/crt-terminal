@@ -23,6 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     onBlur,
     value,
     defaultValue,
+    autoComplete,
     ...attrs
   } = props;
   const mergeValue = ('value' in props) ? value : defaultValue;
@@ -115,6 +116,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       onInput={onInputInner}
       onKeyDown={onKeyDownInner}
       onChange={onChangeInner}
+      autoComplete={autoComplete}
     />
   );
 });
