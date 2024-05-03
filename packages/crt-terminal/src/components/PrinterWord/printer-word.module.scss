@@ -24,8 +24,8 @@
   }
 
   &:disabled {
+    opacity: 0.36;
     color: $main-color;
-    opacity: 36%;
     background-color: transparent;
     cursor: not-allowed;
   }
