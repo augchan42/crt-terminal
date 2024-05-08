@@ -35,6 +35,7 @@ interface InlineTextWord extends BaseWord {
 
 interface ButtonWord extends BaseWord {
   type: WordTypes.BUTTON;
+  disabled?: boolean;
   onClick?: ButtonCallback;
 }
 
@@ -86,6 +87,7 @@ type ButtonProps = Omit<ButtonWord, 'type'>;
 
 const buttonWord = ({
   characters,
+  disabled,
   onClick,
   dataAttribute,
   className,
@@ -93,6 +95,7 @@ const buttonWord = ({
 }: ButtonProps): ButtonWord => ({
   type: WordTypes.BUTTON,
   characters,
+  disabled,
   onClick,
   dataAttribute,
   id,

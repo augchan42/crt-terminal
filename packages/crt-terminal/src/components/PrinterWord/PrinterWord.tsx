@@ -46,6 +46,7 @@ const PrinterWord = function PrinterWord({ word, children }: PropsWithChildren<P
             className={[classes.buttonWord, 'crt-button-word', className].join(' ')}
             data-crt-terminal={dataAttribute}
             onClick={word.onClick}
+            disabled={word.disabled}
           >
             <Character>{children}</Character>
           </button>

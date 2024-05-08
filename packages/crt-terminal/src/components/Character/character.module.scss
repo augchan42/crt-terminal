@@ -7,7 +7,17 @@
 }
 
 .characterSelected {
+  margin: -1px;
   color: $cursor-contrast-color;
   background-color: $cursor-color;
+  border: 1px solid transparent;
   animation: blink-character 1s steps(1, end) infinite;
+}
+
+.characterSelectedNotFocused {
+  margin: -1px;
+  color: $cursor-color;
+  background-color: transparent;
+  border: 1px solid $cursor-color;
+  animation: none;
 }

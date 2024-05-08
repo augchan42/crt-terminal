@@ -76,6 +76,17 @@ export default function Web() {
                 }),
               ],
             }),
+            textLine({
+              className: classes.customLine,
+              words: [
+                buttonWord({
+                  characters: 'disabled button word',
+                  disabled: true,
+                  /* eslint-disable-next-line */
+                  onClick: () => alert('You clicked a button'),
+                }),
+              ],
+            }),
             inlineTextLine({
               className: classes.customLine,
               words: [

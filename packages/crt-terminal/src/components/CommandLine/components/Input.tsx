@@ -23,6 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     onBlur,
     value,
     defaultValue,
+    autoComplete,
     ...attrs
   } = props;
   const mergeValue = ('value' in props) ? value : defaultValue;
@@ -33,7 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       input.value = value as string;
       input.setAttribute('value', value as string);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const onKeyDownInner = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -110,6 +111,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       onInput={onInputInner}
       onKeyDown={onKeyDownInner}
       onChange={onChangeInner}
+      autoComplete={autoComplete}
     />
   );
 });
