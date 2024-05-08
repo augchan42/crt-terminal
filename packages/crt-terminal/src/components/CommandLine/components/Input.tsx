@@ -38,11 +38,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }, [value]);
 
   const onKeyDownInner = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // ignore tabs
-    if (e.key === 'Tab') {
-      e.preventDefault()
-      return
-    }
     // return when inputing chinese pinyin
     if (inputing.current) return;
     onKeyDown?.(e);
