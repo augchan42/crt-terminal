@@ -109,7 +109,6 @@ const Terminal = function Terminal({
   const { handleKeyboardDown, handleInputChange } = controllerHandlers;
 
   useSubscribeEventQueue({ queue, controller: controllerHandlers });
-
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -129,6 +128,7 @@ const Terminal = function Terminal({
 
             <div className="crt-terminal__command-line">
               <CommandLine
+                locked={terminalApp.state.inputLocked}
                 ref={inputElementRef}
                 prompt={prompt}
                 cursorSymbol={cursorSymbol}

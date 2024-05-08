@@ -5,6 +5,7 @@ interface CharacterProps {
   selected?: boolean;
   className?: string;
   hasFocus?: boolean;
+  locked: boolean;
 }
 
 const Character = function Character({
@@ -12,9 +13,10 @@ const Character = function Character({
   selected = false,
   className = '',
   hasFocus = true,
+  locked,
 }: PropsWithChildren<CharacterProps>) {
-  const selectedStyle = selected ? classes.characterSelected : '';
-  const focusStyle = (selected === true && hasFocus === false) ? classes.characterSelectedNotFocused : ''
+  const selectedStyle = (selected === true && !locked) ? classes.characterSelected : '';
+  const focusStyle = (selected === true && hasFocus === false && !locked) ? classes.characterSelectedNotFocused : ''
 
   return (
     <span className={[classes.character, selectedStyle, focusStyle, className, 'crt-character'].join(' ')}>
