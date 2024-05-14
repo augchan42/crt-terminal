@@ -4,7 +4,7 @@
   "description": "Retro looking CRT terminal for web",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jquesnelle/crt-terminal.git"
+    "url": "git+https://github.com/augchan42/crt-terminal.git"
   },
   "keywords": [
     "crt",
@@ -16,7 +16,7 @@
   "author": "Dmitriy Lipin, Nojsja",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jquesnelle/crt-terminal/issues"
+    "url": "https://github.com/augchan42/crt-terminal/issues"
   },
   "private": true,
   "scripts": {
@@ -60,7 +60,7 @@
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^3.19.0",
+    "stylelint-scss": "^4.0.0",
     "typescript": "^4.5.3"
   }
 }
