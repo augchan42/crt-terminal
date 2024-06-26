@@ -1,8 +1,8 @@
 {
-  "name": "@jquesnelle/crt-terminal",
+  "name": "@augchan42/crt-terminal",
   "version": "1.0.29",
   "description": "Retro looking CRT terminal for web",
-  "repository": "https://github.com/jquesnelle/crt-terminal",
+  "repository": "https://github.com/augchan42/crt-terminal",
   "keywords": [
     "crt",
     "terminal",
@@ -13,7 +13,7 @@
   "author": "Dmitriy Lipin, Nojsja, Jeffrey Quesnelle",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jquesnelle/crt-terminal/issues"
+    "url": "https://github.com/augchan42/crt-terminal/issues"
   },
   "private": false,
   "scripts": {

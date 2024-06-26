@@ -10,7 +10,7 @@ import {
   buttonWord,
   commandWord,
   inlineTextWord,
-} from '@jquesnelle/crt-terminal';
+} from '@augchan42/crt-terminal';
 import Layout from '../components/Layout/Layout';
 import classes from './index.module.scss';
 

@@ -28,7 +28,7 @@
     "prepush": "yarn stylelint && yarn lint"
   },
   "dependencies": {
-    "@jquesnelle/crt-terminal": "*",
+    "@augchan42/crt-terminal": "*",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
